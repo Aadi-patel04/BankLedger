@@ -10,6 +10,6 @@ const router = express.Router();
     -protected route
 */
 
-router.post('/', authMiddleware, accountController.createAccountController);
+router.post('/', authMiddleware.authMiddleware, accountController.createAccountController);
 
 module.exports = router;

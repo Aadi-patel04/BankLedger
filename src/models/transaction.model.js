@@ -3,7 +3,7 @@ const  mongoose = require('momgoose');
 const transactionSchema = new mongoose.Schema({
   fromAccount: {
     type:mongoose.Schema.Types.ObjectId,
-    r6ef:"account",
+    ref:"account",
     required: [true, "From account is required for a transaction"],
     index:true
   },
@@ -17,8 +17,8 @@ const transactionSchema = new mongoose.Schema({
         type: String,
         enum:{
             values:["PENDING", "COMPLETED", "FAILED","REVERSED"],
+        Message: "Status must be either pending, completed, failed, or reversed"
         },
-        Message: "Status must be either pending, completed, failed, or reversed",
         default: "PENDING"
     },
     amount:{
@@ -27,7 +27,7 @@ const transactionSchema = new mongoose.Schema({
         min: [0.01, "Amount must be at least 0.01"]
     },
 
-    idempotrncyKey:{
+    idempotencyKey:{
         type: String,
         required: [true, "Idempotency key is required for a transaction"],
         unique: true,

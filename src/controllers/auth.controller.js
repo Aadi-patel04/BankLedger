@@ -2,6 +2,8 @@ const userModel = require('../models/user.models');
 const jwt = require('jsonwebtoken');
 
 const emailService = require('../services/email.service');
+
+
 /*
 user register controller 
 POST /api/auth/register
